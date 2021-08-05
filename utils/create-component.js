@@ -1,34 +1,54 @@
 require("colors");
 const fs = require("fs");
-const templates = require("./templates");
+const styledTemplate = require("./styledComponentTemplate");
+const reactTemplate = require("./reactTemplate");
+var inquirer = require('inquirer');
 
-const componentName = process.argv[2];
+const questions = [
+  {
+    type: 'input',
+    name: 'componentName',
+    message: "Enter a valid component name:",
+  },
+  {
+    type: 'list',
+    name: 'componentType',
+    message: 'Which template do you want to use?',
+    choices: ['Styled Component', 'Plain React'],
+    filter(val) {
+      return val.replace(/\s+/g, '-').toLowerCase();
+    },
+  },
+];
 
-if (!componentName) {
-  console.error("Please supply a valid component name".red);
-  process.exit(1);
-}
+inquirer.prompt(questions).then((answers) => {
+  console.log("Creating Component Templates with name: " + answers.componentName);
 
-console.log("Creating Component Templates with name: " + componentName);
+  const componentDirectory = `./components/${answers.componentName}`;
 
-const componentDirectory = `./components/${componentName}`;
+  if (fs.existsSync(componentDirectory)) {
+    console.error(`Component ${answers.componentName} already exists.`.red);
+    process.exit(1);
+  }
 
-if (fs.existsSync(componentDirectory)) {
-  console.error(`Component ${componentName} already exists.`.red);
-  process.exit(1);
-}
+  fs.mkdirSync(componentDirectory);
 
-fs.mkdirSync(componentDirectory);
+  var templates = reactTemplate;
 
-const generatedTemplates = templates.map((template) => template(componentName));
+  if(answers.componentType === 'styled-component'){
+    templates = styledTemplate;
+  }
 
-generatedTemplates.forEach((template) => {
-  fs.writeFileSync(
-    `${componentDirectory}/${componentName}${template.extension}`,
-    template.content
+  const generatedTemplates = templates.map((template) => template(answers.componentName));
+
+  generatedTemplates.forEach((template) => {
+    fs.writeFileSync(
+      `${componentDirectory}/${answers.componentName}${template.extension}`,
+      template.content
+    );
+  });
+
+  console.log(
+    "Successfully created component under: " + componentDirectory.green
   );
 });
-
-console.log(
-  "Successfully created component under: " + componentDirectory.green
-);
