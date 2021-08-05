@@ -1,9 +1,11 @@
+import { Story, Meta } from "@storybook/react";
+import StickyLogo from "./StickyLogo";
 
-  import StickyLogo from "./StickyLogo";
+export default {
+  title: "StickyLogo",
+  component: StickyLogo,
+} as Meta<typeof StickyLogo>;
 
-  export default {
-      title: "StickyLogo"
-  };
-  
-  export const StickyLogoStory = () => <StickyLogo />;
-  
+const Template: Story<typeof StickyLogo> = (args) => <StickyLogo {...args} />;
+
+export const StickyLogoStory = Template.bind({});
