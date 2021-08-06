@@ -1,18 +1,16 @@
+import styled from "styled-components";
 
-  import styled from "styled-components"
+interface StickyLogoProps {
+  className?: string;
+}
 
-  interface StickyLogoProps {
-      className?: string;
-  }
+const StickyLogo = ({ className }: StickyLogoProps) => {
+  return <div className={className}>Hi I'm StickyLogo</div>;
+};
 
-  const StickyLogo = ({ className }: StickyLogoProps) => {
-    return(
-        <div className={className}>Hi I'm StickyLogo</div>
-    )
-  };
+const StyledStickyLogo = styled(StickyLogo)`
+  text-align: center;
+  position: sticky;
+`;
 
-  const StyledStickyLogo = styled(StickyLogo)``;
-
-
-  export default StyledStickyLogo;
-  
+export default StyledStickyLogo;
