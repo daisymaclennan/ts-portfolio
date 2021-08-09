@@ -21,7 +21,7 @@ const variables = css`
     --z-important: 999;
 
     // Fonts
-    --f-primary: 'primary-font';
+    --f-primary: 'Josefin Sans', sans-serif;
     --f-secondary: 'secondary-font';
 
     // Presets

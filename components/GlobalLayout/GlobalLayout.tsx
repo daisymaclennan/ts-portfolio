@@ -1,13 +1,13 @@
-import { useState } from "react";
-import { createGlobalStyle, ThemeProvider } from "styled-components";
+/* eslint-disable @next/next/no-page-custom-font */
+import { createGlobalStyle } from "styled-components";
 import Head from "next/head";
 import { Reset } from "styled-reset";
-import darkTheme from "../../theme/darkTheme";
-import lightTheme from "../../theme/darkTheme";
-
-type ThemeType = typeof darkTheme;
+import variables from "../../theme/variables";
+import { ThemeType } from "../../types";
+import ThemeHandler from "./ThemeHandler";
 
 const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
+    ${variables}
     body{
         background: ${(props) => props.theme.background};
     }
@@ -18,20 +18,27 @@ const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
 
 interface GlobalLayoutProps {
   children: React.ReactNode;
-  className?: string;
 }
 
-const GlobalLayout = ({ children, className }: GlobalLayoutProps) => {
-  const [theme, changeTheme] = useState<ThemeType>(darkTheme);
+const GlobalLayout = ({ children }: GlobalLayoutProps) => {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeHandler>
       <Reset />
       <Head>
-        <link rel="stylesheet" href="https://use.typekit.net/oxe5smk.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin=""
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <GlobalStyle />
       {children}
-    </ThemeProvider>
+    </ThemeHandler>
   );
 };
 

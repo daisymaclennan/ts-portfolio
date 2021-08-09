@@ -1,5 +1,5 @@
 const lightTheme = {
-    background: '#000000',
+    background: '#F1FAEE',
 };
 
 export default lightTheme;
