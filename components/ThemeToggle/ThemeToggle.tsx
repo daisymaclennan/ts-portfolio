@@ -1,28 +1,25 @@
+import { useContext } from "react";
 import styled from "styled-components";
 import ThemeToggleButton from "./ThemeToggleButton";
+import { Context } from "../../contexts/Context";
 
 interface ThemeToggleProps {
   className?: string;
-  currentTheme: "dark" | "light";
-  switchTheme: (newTheme: "dark" | "light") => void;
 }
 
-const ThemeToggle = ({
-  className,
-  currentTheme,
-  switchTheme,
-}: ThemeToggleProps) => {
+const ThemeToggle = ({ className }: ThemeToggleProps) => {
+  const [theme, switchTheme] = useContext(Context);
   return (
     <div className={className}>
       <ThemeToggleButton
         onClick={() => switchTheme("dark")}
         mode="dark"
-        active={currentTheme === "dark"}
+        active={theme === "dark"}
       />
       <ThemeToggleButton
         onClick={() => switchTheme("light")}
         mode="light"
-        active={currentTheme === "light"}
+        active={theme === "light"}
       />
     </div>
   );

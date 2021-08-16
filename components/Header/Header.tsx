@@ -1,18 +1,23 @@
+import styled from "styled-components";
+import ThemeToggle from "../ThemeToggle/ThemeToggle";
 
-  import styled from "styled-components"
+interface HeaderProps {
+  className?: string;
+}
 
-  interface HeaderProps {
-      className?: string;
-  }
+const Header = ({ className }: HeaderProps) => {
+  return (
+    <header className={className}>
+      <ThemeToggle />
+    </header>
+  );
+};
 
-  const Header = ({ className }: HeaderProps) => {
-    return(
-        <div className={className}>Hi I'm Header</div>
-    )
-  };
+const StyledHeader = styled(Header)`
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+`;
 
-  const StyledHeader = styled(Header)``;
-
-
-  export default StyledHeader;
-  
+export default StyledHeader;

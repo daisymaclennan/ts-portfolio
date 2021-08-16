@@ -11,7 +11,7 @@ const ThemeHandler = ({ children }: { children: React.ReactNode }) => {
     setTheme(newTheme === "dark" ? darkTheme : lightTheme);
 
   return (
-    <Context.Provider value={{ theme, switchTheme }}>
+    <Context.Provider value={[theme, switchTheme]}>
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </Context.Provider>
   );
