@@ -1,7 +1,7 @@
 import { css } from "styled-components";
 
 const variables = css`
-:root {
+  :root {
     // Breakpoints
     --bp-mobile: 450px;
     --bp-xsmall: 600px;
@@ -21,14 +21,29 @@ const variables = css`
     --z-important: 999;
 
     // Fonts
-    --f-primary: 'Josefin Sans', sans-serif;
-    --f-secondary: 'secondary-font';
+    --f-primary: "Josefin Sans", sans-serif;
+    --f-secondary: "secondary-font";
 
     // Presets
     --max-width: 1200px;
     --small-max-width: 1000px;
     --big-max-width: 1400px;
-}
+
+    // Pixel to REM
+    --px11: 0.55rem;
+    --px15: 0.75rem;
+    --px18: 0.9rem;
+    --px21: 1.05rem;
+    --px23: 1.15rem;
+    --px26: 1.3rem;
+    --px34: 1.7rem;
+    --px40: 2rem;
+    --px54: 2.7rem;
+    --px62: 3.1rem;
+    --px86: 4.3rem;
+    --px120: 6rem;
+    --px148: 7.4rem;
+  }
 `;
 
 export default variables;

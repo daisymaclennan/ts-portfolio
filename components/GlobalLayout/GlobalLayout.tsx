@@ -9,6 +9,10 @@ import Header from "../Header/Header";
 
 const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
     ${variables}
+    html {
+      font-size: clamp(16px, calc(1rem + (20 - 16) * ((100vw - var(--bp-mobile)) / (var(--max-width) - var(--bp-mobile)))), 20px);
+      min-height: 1vw;
+    }
     body{
         background: ${(props) => props.theme.background};
     }
