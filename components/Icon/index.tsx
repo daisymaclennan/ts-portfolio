@@ -7,7 +7,7 @@ import Cloud from "./Cloud";
 import Star from "./Star";
 import MoonVector from "./MoonVector";
 
-const Icon = ({ name }) => {
+const Icon = ({ name }: { name: string }) => {
   switch (name) {
     case "sun":
       return <Sun />;
