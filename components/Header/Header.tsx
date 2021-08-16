@@ -14,10 +14,11 @@ const Header = ({ className }: HeaderProps) => {
 };
 
 const StyledHeader = styled(Header)`
-  width: 100%;
+  width: 80%;
   position: fixed;
   top: 0;
-  left: 0;
+  left: 10%;
+  padding: 100px 0;
 `;
 
 export default StyledHeader;

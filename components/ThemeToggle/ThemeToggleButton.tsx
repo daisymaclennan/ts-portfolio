@@ -31,6 +31,9 @@ const StyledThemeToggleButton = styled(ThemeToggleButton)<StyledThemeToggleButto
   justify-content: center;
   align-items: center;
   transition: 0.25s ease-in-out;
+  background: transparent;
+  position: relative;
+  z-index: 2;
 
   svg {
     fill: white;
@@ -41,18 +44,6 @@ const StyledThemeToggleButton = styled(ThemeToggleButton)<StyledThemeToggleButto
     !props.active &&
     `
     cursor: pointer;
-  `}
-
-  ${(props) =>
-    props.mode === "dark" &&
-    `
-    background: ${darkTheme.background};
-  `}
-
-  ${(props) =>
-    props.mode === "light" &&
-    `
-    background: ${lightTheme.background};
   `}
 `;
 

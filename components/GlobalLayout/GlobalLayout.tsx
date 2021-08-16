@@ -5,6 +5,7 @@ import { Reset } from "styled-reset";
 import variables from "../../theme/variables";
 import { ThemeType } from "../../types";
 import ThemeHandler from "./ThemeHandler";
+import Header from "../Header/Header";
 
 const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
     ${variables}
@@ -37,6 +38,7 @@ const GlobalLayout = ({ children }: GlobalLayoutProps) => {
         />
       </Head>
       <GlobalStyle />
+      <Header />
       {children}
     </ThemeHandler>
   );

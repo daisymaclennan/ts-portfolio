@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ThemeProvider } from "styled-components";
 import { Context } from "../../contexts/Context";
 import darkTheme from "../../theme/darkTheme";
-import lightTheme from "../../theme/darkTheme";
+import lightTheme from "../../theme/lightTheme";
 import { ThemeType } from "../../types";
 
 const ThemeHandler = ({ children }: { children: React.ReactNode }) => {
