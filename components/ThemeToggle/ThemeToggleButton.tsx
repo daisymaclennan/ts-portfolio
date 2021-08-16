@@ -44,6 +44,9 @@ const StyledThemeToggleButton = styled(ThemeToggleButton)<StyledThemeToggleButto
     !props.active &&
     `
     cursor: pointer;
+    svg {
+      fill: #b9b9b9;
+    }
   `}
 `;
 

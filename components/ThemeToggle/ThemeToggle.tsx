@@ -22,8 +22,8 @@ const ThemeToggle = ({ className }: ThemeToggleProps) => {
   return (
     <div className={className}>
       <motion.span variants={variants} animate={theme.name === 'dark' ? 'left' : 'right'} initial={theme.name === 'dark' ? 'left' : 'right'} />
-      <ThemeToggleButton onClick={() => switchTheme("dark")} mode="dark" />
-      <ThemeToggleButton onClick={() => switchTheme("light")} mode="light" />
+      <ThemeToggleButton onClick={() => switchTheme("dark")} mode="dark" active={theme.name === 'dark'} />
+      <ThemeToggleButton onClick={() => switchTheme("light")} mode="light" active={theme.name === 'light'} />
     </div>
   );
 };
@@ -33,7 +33,7 @@ const StyledThemeToggle = styled(ThemeToggle)`
   align-items: center;
   justify-content: space-between;
   width: 80px;
-  background: grey;
+  background: #F1FAEE;
   border-radius: 20px;
   position: relative;
 
@@ -42,7 +42,7 @@ const StyledThemeToggle = styled(ThemeToggle)`
     width: 40px;
     height: 100%;
     border-radius: 20px;
-    background: pink;
+    background: #E63946;
     z-index: 1;
     box-shadow: rgb(0 0 0 / 15%) 0px 0px 1rem 0.4rem;
   }

@@ -1,6 +1,7 @@
 const lightTheme = {
     name: 'light',
-    background: '#F1FAEE',
+    background: '#A8DADC',
+    contrast: '#1D3557',
 };
 
 export default lightTheme;
