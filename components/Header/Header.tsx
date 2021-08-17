@@ -10,30 +10,56 @@ interface HeaderProps {
 const Header = ({ className }: HeaderProps) => {
   return (
     <header className={className}>
-      <ThemeToggle />
-      <h1>Daisy <span>Maclennan</span></h1>
-      <SocialIcons>
-        <a href="google.com">
-          <Icon name="linkedin" />
-        </a>
-        <a href="google.com">
-          <Icon name="github" />
-        </a>
-      </SocialIcons>
+      <div>
+        <ThemeToggle />
+        <h1>
+          Daisy <span>Maclennan</span>
+        </h1>
+        <SocialIcons>
+          <a href="google.com">
+            <Icon name="linkedin" />
+          </a>
+          <a href="google.com">
+            <Icon name="github" />
+          </a>
+        </SocialIcons>
+      </div>
     </header>
   );
 };
 
-const StyledHeader = styled(Header)`
-  width: calc(100% - var(--px40));
+interface StyledHeaderProps {
+  isScrolled?: boolean;
+}
+
+const StyledHeader = styled(Header)<StyledHeaderProps>`
   position: fixed;
   z-index: 999;
   top: 0;
-  left: calc(var(--px40) / 2);
-  padding: var(--px40) 0;
-  height: var(--px40);
-  display: flex;
-  align-items: center;
+  left: 0;
+  width: 100%;
+  transition: var(--transition);
+
+  > div {
+    width: calc(100% - var(--px40));
+    padding: var(--px40) 0;
+    height: var(--px40);
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: 0 auto;
+    transition: var(--transition);
+  }
+
+  ${(props) =>
+    props.isScrolled &&
+    `
+    background: ${props.theme.background};
+
+    > div {
+      padding: var(--px21) 0;
+    }
+  `}
 
   > ${ThemeToggle} {
     position: absolute;
@@ -50,11 +76,11 @@ const StyledHeader = styled(Header)`
     width: 100%;
     transition: color var(--transition);
 
-    @media (max-width: ${props => props.theme.breakpoints.xSmall}) {
+    @media (max-width: ${(props) => props.theme.breakpoints.xSmall}) {
       font-size: var(--px18);
     }
 
-    @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
       span {
         display: none;
       }

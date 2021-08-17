@@ -10,8 +10,8 @@ interface MoonTextProps {
 
 const MoonText = ({ className }: MoonTextProps) => {
   const { scrollY } = useViewportScroll();
-  const one = useTransform(scrollY, [0, 600], ["-5%", "-85%"]);
-  const two = useTransform(scrollY, [0, 600], ["10%", "90%"]);
+  const one = useTransform(scrollY, [0, 600], ["-5%", "-105%"]);
+  const two = useTransform(scrollY, [0, 600], ["10%", "110%"]);
   return (
     <div className={className}>
       <div>

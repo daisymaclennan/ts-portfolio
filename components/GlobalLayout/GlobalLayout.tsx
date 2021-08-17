@@ -1,11 +1,13 @@
 /* eslint-disable @next/next/no-page-custom-font */
 import { createGlobalStyle } from "styled-components";
 import Head from "next/head";
+import { useState, useEffect } from "react";
 import { Reset } from "styled-reset";
 import variables from "../../theme/variables";
 import { ThemeType } from "../../types";
 import ThemeHandler from "./ThemeHandler";
 import Header from "../Header/Header";
+import DarkBackground from "../DarkBackground/DarkBackground";
 
 const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
     ${variables}
@@ -31,11 +33,23 @@ interface GlobalLayoutProps {
 }
 
 const GlobalLayout = ({ children }: GlobalLayoutProps) => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 150) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    document.addEventListener('scroll', handleScroll);
+    return () => document.removeEventListener('scroll', handleScroll);
+  });
   return (
     <ThemeHandler>
       <Reset />
       <Head>
-        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -48,7 +62,8 @@ const GlobalLayout = ({ children }: GlobalLayoutProps) => {
         />
       </Head>
       <GlobalStyle />
-      <Header />
+      <Header isScrolled={isScrolled} />
+      <DarkBackground />
       {children}
     </ThemeHandler>
   );
