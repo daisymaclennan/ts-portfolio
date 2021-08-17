@@ -17,8 +17,8 @@ const Skill = styled.div<SkillProps>`
     filter: blur(2px);
     z-index: 1;
     border-radius: var(--px11);
-    height: var(--px54);
-    width: var(--px54);
+    height: var(--px86);
+    width: var(--px86);
   `}
 
   ${(props) =>
@@ -27,8 +27,8 @@ const Skill = styled.div<SkillProps>`
     filter: blur(1px);
     z-index: 2;
     border-radius: var(--px15);
-    height: var(--px86);
-    width: var(--px86);
+    height: var(--px120);
+    width: var(--px120);
   `}
 
   ${(props) =>
@@ -36,8 +36,8 @@ const Skill = styled.div<SkillProps>`
     `
     z-index: 4;
     border-radius: var(--px21);
-    height: var(--px120);
-    width: var(--px120);
+    height: var(--px148);
+    width: var(--px148);
   `}
 
 

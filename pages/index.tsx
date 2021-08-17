@@ -4,6 +4,8 @@ import MoonText from "../components/MoonText/MoonText";
 import IntroText from "../components/IntroText/IntroText";
 import BigTitle from "../components/BigTitle/BigTitle";
 import SkillRocket from "../components/SkillRocket/SkillRocket";
+import Project from "../components/Project/Project";
+import Projects from "../components/Project/Projects";
 
 export default function Home() {
   return (
@@ -23,6 +25,13 @@ export default function Home() {
       <IntroText text={data.introduction} />
       <BigTitle>My skills</BigTitle>
       <SkillRocket skills={data.skills} />
+      <BigTitle>Projects</BigTitle>
+      <Projects>
+        <Project name='Jack Bretherick Portfolio' />
+        <Project name='React Drag Drop' />
+        <Project name='Creative Portsmouth' />
+        <Project name='4Marketing' />
+      </Projects>
     </div>
   );
 }
