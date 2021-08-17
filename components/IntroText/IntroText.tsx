@@ -23,6 +23,14 @@ const StyledIntroText = styled(IntroText)`
     color: ${(props) => props.theme.contrast};
     text-align: center;
   }
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    margin: var(--px200) auto;
+
+    h3 {
+      font-size: var(--px54);
+    }
+  }
 `;
 
 export default StyledIntroText;

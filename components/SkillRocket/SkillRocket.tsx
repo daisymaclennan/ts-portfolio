@@ -39,6 +39,8 @@ const StyledSkillRocket = styled(SkillRocket)`
 
     svg {
       width: 100%;
+      position: relative;
+      z-index: 3;
     }
 
     ${Skill} {
@@ -52,7 +54,7 @@ const StyledSkillRocket = styled(SkillRocket)`
         left: 90%;
       }
       &:nth-of-type(3) {
-        top: 0;
+        top: -2%;
         left: 40%;
       }
       &:nth-of-type(4) {
@@ -74,6 +76,41 @@ const StyledSkillRocket = styled(SkillRocket)`
       &:nth-of-type(8) {
         top: 50%;
         left: 0;
+      }
+
+      @media (max-width: ${(props) => props.theme.breakpoints.small}) {
+        &:nth-of-type(1) {
+          top: 30%;
+          left: 6%;
+        }
+        &:nth-of-type(2) {
+          top: 14%;
+          left: 90%;
+        }
+        &:nth-of-type(3) {
+          top: 70%;
+          left: 20%;
+        }
+        &:nth-of-type(4) {
+          top: 48%;
+          left: 90%;
+        }
+        &:nth-of-type(5) {
+          top: 10%;
+          left: 10%;
+        }
+        &:nth-of-type(6) {
+          top: 70%;
+          left: 80%;
+        }
+        &:nth-of-type(7) {
+          top: -3%;
+          left: 64%;
+        }
+        &:nth-of-type(8) {
+          top: 50%;
+          left: 0;
+        }
       }
     }
   }

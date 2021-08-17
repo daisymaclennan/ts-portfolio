@@ -14,6 +14,8 @@ const Skill = styled.div<SkillProps>`
   ${(props) =>
     props.size === "sm" &&
     `
+    filter: blur(2px);
+    z-index: 1;
     border-radius: var(--px11);
     height: var(--px54);
     width: var(--px54);
@@ -22,6 +24,8 @@ const Skill = styled.div<SkillProps>`
   ${(props) =>
     props.size === "md" &&
     `
+    filter: blur(1px);
+    z-index: 2;
     border-radius: var(--px15);
     height: var(--px86);
     width: var(--px86);
@@ -30,10 +34,38 @@ const Skill = styled.div<SkillProps>`
   ${(props) =>
     props.size === "lg" &&
     `
+    z-index: 4;
     border-radius: var(--px21);
     height: var(--px120);
     width: var(--px120);
   `}
+
+
+  @media (max-width: ${(props) => props.theme.breakpoints.small}) {
+    ${(props) =>
+      props.size === "sm" &&
+      `
+      border-radius: var(--px11);
+      height: var(--px54);
+      width: var(--px54);
+    `}
+
+    ${(props) =>
+      props.size === "md" &&
+      `
+      border-radius: var(--px15);
+      height: var(--px62);
+      width: var(--px62);
+    `}
+
+    ${(props) =>
+      props.size === "lg" &&
+        `
+      border-radius: var(--px21);
+      height: var(--px86);
+      width: var(--px86);
+    `}
+  }
 `;
 
 export default Skill;
