@@ -10,8 +10,8 @@ interface MoonTextProps {
 
 const MoonText = ({ className }: MoonTextProps) => {
   const { scrollY } = useViewportScroll();
-  const one = useTransform(scrollY, [0, 600], ["-5vw", "-85vw"]);
-  const two = useTransform(scrollY, [0, 600], ["10vw", "90vw"]);
+  const one = useTransform(scrollY, [0, 600], ["-5%", "-85%"]);
+  const two = useTransform(scrollY, [0, 600], ["10%", "90%"]);
   return (
     <div className={className}>
       <div>
@@ -33,6 +33,10 @@ const StyledMoonText = styled(MoonText)`
   position: relative;
   // Makes it a square
   padding-top: 80%;
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    padding-top: 90%;
+    margin: var(--px54) auto;
+  }
   div {
     position: absolute;
     width: 100%;
@@ -43,10 +47,22 @@ const StyledMoonText = styled(MoonText)`
     flex-direction: column;
     justify-content: center;
     > h2 {
-      font-size: 30vw;
+      font-size: var(--px300);
       font-weight: bold;
       color: ${(props) => props.theme.contrast};
       transition: color var(--transition);
+
+      @media (max-width: ${(props) => props.theme.breakpoints.medium}) {
+        font-size: var(--px250);
+      }
+
+      @media (max-width: ${(props) => props.theme.breakpoints.small}) {
+        font-size: var(--px200);
+      }
+
+      @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+        font-size: var(--px148);
+      }
 
       &:nth-of-type(1) {
         top: 0;

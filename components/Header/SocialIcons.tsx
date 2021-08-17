@@ -11,8 +11,8 @@ const SocialIcons = styled.div`
       width: 100%;
       height: 100%;
       stroke: ${(props) => props.theme.contrast};
-      fill: ${(props) => props.theme.background};
-      transition: var(--transition);
+      fill: transparent;
+      transition: fill var(--transition);
     }
 
     &:hover {

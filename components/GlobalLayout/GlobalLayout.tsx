@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
         background: ${(props) => props.theme.background};
         width: 100vw;
         overflow-x: hidden;
-        transition: var(--transition);
+        transition: background-color var(--transition);
         height: 500vh;
         padding-top: var(--px120);
     }
@@ -35,6 +35,7 @@ const GlobalLayout = ({ children }: GlobalLayoutProps) => {
     <ThemeHandler>
       <Reset />
       <Head>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

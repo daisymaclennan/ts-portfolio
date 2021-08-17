@@ -43,6 +43,8 @@ const variables = css`
     --px86: 4.3rem;
     --px120: 6rem;
     --px148: 7.4rem;
+    --px200: 10rem;
+    --px250: 12.5rem;
     --px300: 17.5rem;
 
     // Transition

@@ -11,7 +11,7 @@ const Header = ({ className }: HeaderProps) => {
   return (
     <header className={className}>
       <ThemeToggle />
-      <h1>Daisy Maclennan</h1>
+      <h1>Daisy <span>Maclennan</span></h1>
       <SocialIcons>
         <a href="google.com">
           <Icon name="linkedin" />
@@ -48,10 +48,16 @@ const StyledHeader = styled(Header)`
     text-transform: uppercase;
     color: ${(props) => props.theme.contrast};
     width: 100%;
-    transition: var(--transition);
+    transition: color var(--transition);
 
     @media (max-width: ${props => props.theme.breakpoints.xSmall}) {
       font-size: var(--px18);
+    }
+
+    @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+      span {
+        display: none;
+      }
     }
   }
 `;
