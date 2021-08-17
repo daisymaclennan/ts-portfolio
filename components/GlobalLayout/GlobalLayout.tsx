@@ -15,6 +15,11 @@ const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
     }
     body{
         background: ${(props) => props.theme.background};
+        width: 100vw;
+        overflow-x: hidden;
+        transition: var(--transition);
+        height: 500vh;
+        padding-top: var(--px120);
     }
     body, *{
         font-family: var(--f-primary);

@@ -25,12 +25,13 @@ const Header = ({ className }: HeaderProps) => {
 };
 
 const StyledHeader = styled(Header)`
-  width: calc(100% - 40px);
+  width: calc(100% - var(--px40));
   position: fixed;
+  z-index: 999;
   top: 0;
-  left: 20px;
-  padding: 40px 0;
-  height: 40px;
+  left: calc(var(--px40) / 2);
+  padding: var(--px40) 0;
+  height: var(--px40);
   display: flex;
   align-items: center;
 
@@ -41,13 +42,17 @@ const StyledHeader = styled(Header)`
 
   h1 {
     font-weight: 600;
-    font-size: 24px;
-    line-height: 24px;
+    font-size: var(--px23);
     text-align: center;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: ${(props) => props.theme.contrast};
     width: 100%;
+    transition: var(--transition);
+
+    @media (max-width: ${props => props.theme.breakpoints.xSmall}) {
+      font-size: var(--px18);
+    }
   }
 `;
 

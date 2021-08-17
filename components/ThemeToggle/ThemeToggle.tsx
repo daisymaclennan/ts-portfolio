@@ -29,19 +29,19 @@ const ThemeToggle = ({ className }: ThemeToggleProps) => {
 };
 
 const StyledThemeToggle = styled(ThemeToggle)`
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 80px;
+  width: calc(var(--px40) * 2);
   background: #F1FAEE;
-  border-radius: 20px;
-  position: relative;
+  border-radius: calc(var(--px40) / 2);
 
   span {
     position: absolute;
-    width: 40px;
+    width: var(--px40);
     height: 100%;
-    border-radius: 20px;
+    border-radius: calc(var(--px40) / 2);
     background: #E63946;
     z-index: 1;
     box-shadow: rgb(0 0 0 / 15%) 0px 0px 1rem 0.4rem;

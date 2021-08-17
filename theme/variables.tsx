@@ -43,6 +43,10 @@ const variables = css`
     --px86: 4.3rem;
     --px120: 6rem;
     --px148: 7.4rem;
+    --px300: 17.5rem;
+
+    // Transition
+    --transition: 0.25s ease-in;
   }
 `;
 

@@ -2,17 +2,17 @@ import styled from "styled-components";
 
 const SocialIcons = styled.div`
   position: fixed;
-  right: 20px;
+  right: calc(var(--px40) / 2);
   display: flex;
   a {
-    height: 30px;
-    width: 30px;
+    height: var(--px34);
+    width: var(--px34);
     svg {
       width: 100%;
       height: 100%;
       stroke: ${(props) => props.theme.contrast};
       fill: ${(props) => props.theme.background};
-      transition: 0.25s ease-in;
+      transition: var(--transition);
     }
 
     &:hover {
@@ -22,7 +22,7 @@ const SocialIcons = styled.div`
     }
 
     & + a {
-        margin-left: 10px;
+        margin-left: var(--px11);
     }
   }
 `;

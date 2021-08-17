@@ -24,9 +24,8 @@ interface StyledThemeToggleButtonProps {
 
 const StyledThemeToggleButton = styled(ThemeToggleButton)<StyledThemeToggleButtonProps>`
   border: none;
-  height: 40px;
-  width: 40px;
-  border-radius: 20px;
+  height: var(--px40);
+  width: var(--px40);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,7 +36,7 @@ const StyledThemeToggleButton = styled(ThemeToggleButton)<StyledThemeToggleButto
 
   svg {
     fill: white;
-    width: 20px;
+    width: var(--px21);
   }
 
   ${(props) =>
