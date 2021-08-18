@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
@@ -36,6 +37,8 @@ const ProjectButton = ({
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{ width: `${hover ? `${width}px` : `2.2em`}` }}
+      target="_blank"
+      rel="noopener"
     >
       <Icon name={icon} />
       <span ref={textRef}>{text}</span>
