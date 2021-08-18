@@ -15,15 +15,17 @@ const MoonText = ({ className }: MoonTextProps) => {
   return (
     <div className={className}>
       <div>
-        <motion.h2 style={{ x: one }}>Daisy</motion.h2>
-        <motion.h2 style={{ x: two }}>Maclennan</motion.h2>
-      </div>
-      <div>
-        <motion.h2 style={{ x: one }}>Daisy</motion.h2>
-        <motion.h2 style={{ x: two }}>Maclennan</motion.h2>
-      </div>
+        <div>
+          <motion.h2 style={{ x: one }}>Daisy</motion.h2>
+          <motion.h2 style={{ x: two }}>Maclennan</motion.h2>
+        </div>
+        <div>
+          <motion.h2 style={{ x: one }}>Daisy</motion.h2>
+          <motion.h2 style={{ x: two }}>Maclennan</motion.h2>
+        </div>
 
-      <Moon />
+        <Moon />
+      </div>
     </div>
   );
 };
@@ -31,64 +33,65 @@ const MoonText = ({ className }: MoonTextProps) => {
 const StyledMoonText = styled(MoonText)`
   ${contentContainer}
   position: relative;
-  // Makes it a square
-  padding-top: 80%;
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    padding-top: 90%;
     margin: var(--px54) auto;
   }
-  div {
-    position: absolute;
+  > div {
     width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    > h2 {
-      font-size: var(--px300);
-      font-weight: bold;
-      color: ${(props) => props.theme.contrast};
-      transition: color var(--transition);
-
-      @media (max-width: ${(props) => props.theme.breakpoints.medium}) {
-        font-size: var(--px250);
-      }
-
-      @media (max-width: ${(props) => props.theme.breakpoints.small}) {
-        font-size: var(--px200);
-      }
-
-      @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-        font-size: var(--px148);
-      }
-
-      &:nth-of-type(1) {
-        top: 0;
-      }
-
-      &:nth-of-type(2) {
-        top: var(--px300);
-      }
-    }
-
-    &:last-of-type {
-      z-index: 3;
-      mask: url("/moon.svg");
-      mask-size: 100%;
+    padding-top: 100%;
+    div {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       > h2 {
-        color: ${(props) => props.theme.background};
+        font-size: var(--px300);
+        font-weight: bold;
+        color: ${(props) => props.theme.contrast};
+        transition: color var(--transition);
+
+        @media (max-width: ${(props) => props.theme.breakpoints.medium}) {
+          font-size: var(--px250);
+        }
+
+        @media (max-width: ${(props) => props.theme.breakpoints.small}) {
+          font-size: var(--px200);
+        }
+
+        @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+          font-size: var(--px148);
+        }
+
+        &:nth-of-type(1) {
+          top: 0;
+        }
+
+        &:nth-of-type(2) {
+          top: var(--px300);
+        }
+      }
+
+      &:last-of-type {
+        z-index: 3;
+        mask: url("/moon.svg");
+        mask-size: 100%;
+        > h2 {
+          color: ${(props) => props.theme.background};
+        }
       }
     }
-  }
 
-  svg {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    z-index: 2;
+    svg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      z-index: 2;
+    }
   }
 `;
 
