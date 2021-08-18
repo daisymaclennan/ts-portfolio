@@ -49,10 +49,14 @@ const StyledMoonText = styled(MoonText)`
       flex-direction: column;
       justify-content: center;
       > h2 {
-        font-size: var(--px300);
+        font-size: var(--px400);
         font-weight: bold;
         color: ${(props) => props.theme.contrast};
         transition: color var(--transition);
+
+        @media (max-width: ${(props) => props.theme.breakpoints.large}) {
+          font-size: var(--px300);
+        }
 
         @media (max-width: ${(props) => props.theme.breakpoints.medium}) {
           font-size: var(--px250);

@@ -46,6 +46,7 @@ const variables = css`
     --px200: 10rem;
     --px250: 12.5rem;
     --px300: 17.5rem;
+    --px400: 20rem;
 
     // Transition
     --transition: 0.25s ease-in;
