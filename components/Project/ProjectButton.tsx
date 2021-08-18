@@ -68,17 +68,16 @@ const StyledProjectButton = styled(ProjectButton)<StyledProjectButtonProps>`
 
   span {
     ${verticalCenter}
-    transition: var(--transition);
     font-size: 0.8em;
     left: 2.8em;
     font-weight: 600;
     white-space: nowrap;
     opacity: 0;
+    color: ${(props) => props.theme.contrast};
   }
 
   svg {
     ${verticalCenter}
-    transition: var(--transition);
     width: 2.2em;
     height: 2.2em;
     margin: 0;
