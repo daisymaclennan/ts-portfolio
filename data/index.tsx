@@ -1,6 +1,6 @@
 const data = {
   introduction:
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    "I'm a Front End Developer based in Derby, UK. I have around 3 years experience working with world class agencies across the UK.",
   skills: {
     sm: ["styledcomps.png", "vue.png", "wordpress.png"],
     md: ["gatsby.png", "js.jpeg"],

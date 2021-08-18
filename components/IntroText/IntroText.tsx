@@ -22,6 +22,7 @@ const StyledIntroText = styled(IntroText)`
     font-weight: 600;
     color: ${(props) => props.theme.contrast};
     text-align: center;
+    line-height: 110%;
   }
 
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
