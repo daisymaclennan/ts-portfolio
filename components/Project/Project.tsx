@@ -23,10 +23,10 @@ const Project = ({
     <div className={className}>
       <h4>{name}</h4>
       <div>
-        {github && <ProjectButton icon="github" href={github} />}
-        {play && <ProjectButton icon="play" href={play} />}
-        {live && <ProjectButton icon="eye" href={live} />}
-        {design && <ProjectButton icon="figma" href={design} />}
+        {github && <ProjectButton icon="github" href={github} text='View on GitHub' />}
+        {play && <ProjectButton icon="play" href={play} text='Play on Itch.io' />}
+        {live && <ProjectButton icon="eye" href={live} text='See the site' />}
+        {design && <ProjectButton icon="figma" href={design} text='View in Figma' />}
       </div>
     </div>
   );
@@ -42,24 +42,10 @@ const StyledProject = styled(Project)`
     color: ${(props) => props.theme.contrast};
     margin: var(--px40) 0;
   }
-  button {
-    cursor: pointer;
-    background: #e63946;
-    border: none;
-    height: var(--px62);
-    width: var(--px62);
-    border-radius: 100px;
+  > div {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition);
-    svg {
-      fill: white;
-      height: var(--px40);
-    }
-
-    &:hover {
-      transform: scale(1.1);
+    > * + * {
+      margin-left: 0.5rem;
     }
   }
 `;

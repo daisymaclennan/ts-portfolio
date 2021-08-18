@@ -30,4 +30,10 @@ const contentContainerXl = css`
   max-width: var(--big-max-width);
 `;
 
-export { contentContainerSmall, contentContainer, contentContainerXl };
+const verticalCenter = css`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+`;
+
+export { contentContainerSmall, contentContainer, contentContainerXl, verticalCenter };
