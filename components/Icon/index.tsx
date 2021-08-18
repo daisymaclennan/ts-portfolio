@@ -6,6 +6,9 @@ import GitHub from "./GitHub";
 import Cloud from "./Cloud";
 import Star from "./Star";
 import MoonVector from "./MoonVector";
+import Eye from "./Eye";
+import Figma from "./Figma";
+import Play from "./Play";
 
 const Icon = ({ name }: { name: string }) => {
   switch (name) {
@@ -23,6 +26,12 @@ const Icon = ({ name }: { name: string }) => {
       return <Star />;
     case "moonVector":
       return <MoonVector />;
+    case "eye":
+      return <Eye />;
+    case "figma":
+      return <Figma />;
+    case "play":
+      return <Play />;
     default:
       return <div />;
   }

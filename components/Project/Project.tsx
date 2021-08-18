@@ -1,20 +1,32 @@
 import styled from "styled-components";
 import { contentContainer } from "../../theme/mixins";
-import Icon from "../Icon";
+import ProjectButton from "./ProjectButton";
 
 interface ProjectProps {
   className?: string;
   name?: string;
+  github?: string;
+  play?: string;
+  live?: string;
+  design?: string;
 }
 
-const Project = ({ className, name }: ProjectProps) => {
+const Project = ({
+  className,
+  name,
+  github,
+  play,
+  live,
+  design,
+}: ProjectProps) => {
   return (
     <div className={className}>
       <h4>{name}</h4>
       <div>
-        <button>
-          <Icon name="github" />
-        </button>
+        {github && <ProjectButton icon="github" href={github} />}
+        {play && <ProjectButton icon="play" href={play} />}
+        {live && <ProjectButton icon="eye" href={live} />}
+        {design && <ProjectButton icon="figma" href={design} />}
       </div>
     </div>
   );

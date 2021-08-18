@@ -27,10 +27,9 @@ export default function Home() {
       <SkillRocket skills={data.skills} />
       <BigTitle>Projects</BigTitle>
       <Projects>
-        <Project name='Jack Bretherick Portfolio' />
-        <Project name='React Drag Drop' />
-        <Project name='Creative Portsmouth' />
-        <Project name='4Marketing' />
+        {data.projects.map((proj) => (
+          <Project key={proj.name} name={proj.name} github={proj.github} live={proj.live} play={proj.play} design={proj.design} />
+        ))}
       </Projects>
     </div>
   );
