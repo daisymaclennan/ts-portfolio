@@ -9,7 +9,7 @@ import Projects from "../components/Project/Projects";
 
 export default function Home() {
   return (
-    <div>
+    <div style={{ overflowX: "hidden" }}>
       <Head>
         <title>Daisy Maclennan</title>
         <link rel="icon" href="/favicon.ico" />
@@ -28,7 +28,14 @@ export default function Home() {
       <BigTitle>Projects</BigTitle>
       <Projects>
         {data.projects.map((proj) => (
-          <Project key={proj.name} name={proj.name} github={proj.github} live={proj.live} play={proj.play} design={proj.design} />
+          <Project
+            key={proj.name}
+            name={proj.name}
+            github={proj.github}
+            live={proj.live}
+            play={proj.play}
+            design={proj.design}
+          />
         ))}
       </Projects>
     </div>
