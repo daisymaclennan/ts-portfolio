@@ -19,22 +19,22 @@ const data = {
         "https://www.figma.com/file/vINPRcDjMCf9kRDtOGAbPN/Gosport-Boxing-Club?node-id=22%3A345",
     },
     {
+      name: "California Calling Clone",
+      github:
+        "https://github.com/daisymaclennan/California-Calling-using-Vue.js-rebuild",
+      live: "https://naughty-tereshkova-358524.netlify.app/",
+    },
+    {
       name: "React Drag Drop",
       github: "https://github.com/daisymaclennan/react-drag-drop",
     },
     {
       name: "Zombie Shooter",
-      play:
-        "https://daisymaclennan.itch.io/zombiegame",
+      play: "https://daisymaclennan.itch.io/zombiegame",
     },
     {
       name: "Medieval Maze Game",
       play: "https://daisymaclennan.itch.io/medieval-theme-maze-game",
-    },
-    {
-      name: "California Calling Clone",
-      github:
-        "https://github.com/daisymaclennan/California-Calling-using-Vue.js-rebuild",
     },
   ],
 };
