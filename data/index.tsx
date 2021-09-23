@@ -23,7 +23,6 @@ const data = {
       github: "https://github.com/daisymaclennan/mcg_devtest",
       live: "https://mcg-devtest-ewxtbhr1k-daisy2.vercel.app/",
     },
-
     {
       name: "California Calling Clone",
       github:
