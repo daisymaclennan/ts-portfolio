@@ -19,6 +19,12 @@ const data = {
         "https://www.figma.com/file/vINPRcDjMCf9kRDtOGAbPN/Gosport-Boxing-Club?node-id=22%3A345",
     },
     {
+      name: "MCG Front End Dev Challenge",
+      github: "https://github.com/daisymaclennan/mcg_devtest",
+      live: "https://mcg-devtest-ewxtbhr1k-daisy2.vercel.app/",
+    },
+
+    {
       name: "California Calling Clone",
       github:
         "https://github.com/daisymaclennan/California-Calling-using-Vue.js-rebuild",
