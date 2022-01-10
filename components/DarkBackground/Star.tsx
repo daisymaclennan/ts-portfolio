@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, MotionValue } from "framer-motion";
 
 interface StarProps {
   className?: string;
@@ -18,8 +18,8 @@ const Star = ({ className, i }: StarProps) => {
       ]);
     };
     resize();
-    window.addEventListener("resize", resize);
-    return () => window.removeEventListener("resize", resize);
+    // window.addEventListener("resize", resize);
+    // return () => window.removeEventListener("resize", resize);
   }, []);
   return (
     <motion.figure className={className} style={{ x: pos[0], y: pos[1] }} />
