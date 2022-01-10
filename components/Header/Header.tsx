@@ -16,10 +16,13 @@ const Header = ({ className }: HeaderProps) => {
           Daisy <span>Maclennan</span>
         </h1>
         <SocialIcons>
-          <a href="https://www.linkedin.com/in/daisy-maclennan/">
+          <a href="/cv.pdf" target="_blank" rel="noreferrer" download>
+            <Icon name="arrow" />
+          </a>
+          <a href="https://www.linkedin.com/in/daisy-maclennan/" target="_blank" rel="noreferrer">
             <Icon name="linkedin" />
           </a>
-          <a href="https://github.com/daisymaclennan">
+          <a href="https://github.com/daisymaclennan" target="_blank" rel="noreferrer">
             <Icon name="github" />
           </a>
         </SocialIcons>

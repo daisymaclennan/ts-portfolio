@@ -21,8 +21,19 @@ const SocialIcons = styled.div`
       }
     }
 
+    &:first-of-type {
+      transform: rotate(90deg);
+      &:hover {
+        transition: transform var(--transition);
+        transform: rotate(90deg) translateX(2px);
+        svg {
+          fill: none;
+        }
+      }
+    }
+
     & + a {
-        margin-left: var(--px11);
+      margin-left: var(--px11);
     }
   }
 `;

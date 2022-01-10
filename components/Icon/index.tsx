@@ -9,6 +9,7 @@ import MoonVector from "./MoonVector";
 import Eye from "./Eye";
 import Figma from "./Figma";
 import Play from "./Play";
+import Arrow from "./Arrow";
 
 const Icon = ({ name }: { name: string }) => {
   switch (name) {
@@ -32,6 +33,8 @@ const Icon = ({ name }: { name: string }) => {
       return <Figma />;
     case "play":
       return <Play />;
+    case "arrow":
+      return <Arrow />;
     default:
       return <div />;
   }
