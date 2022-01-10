@@ -16,7 +16,7 @@ const Header = ({ className }: HeaderProps) => {
           Daisy <span>Maclennan</span>
         </h1>
         <SocialIcons>
-          <a href="/cv.pdf" target="_blank" rel="noreferrer" download>
+          <a href="/CV.pdf" target="_blank" rel="noreferrer" download>
             <Icon name="arrow" />
           </a>
           <a href="https://www.linkedin.com/in/daisy-maclennan/" target="_blank" rel="noreferrer">
