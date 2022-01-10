@@ -1,5 +1,4 @@
 import { motion, useTransform, useViewportScroll } from "framer-motion";
-import { useEffect, useLayoutEffect, useState } from "react";
 import styled from "styled-components";
 import Star from "./Star";
 
