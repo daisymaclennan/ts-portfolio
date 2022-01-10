@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useTransform, useViewportScroll } from "framer-motion";
 import { contentContainer } from "../../theme/mixins";
 import Moon from "./Moon";
@@ -19,7 +19,7 @@ const MoonText = ({ className }: MoonTextProps) => {
   const one = useTransform(scrollY, [0, widths.one], ["-5%", "-105%"]);
   const two = useTransform(scrollY, [0, widths.two], ["10%", "110%"]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const getWidths = () => {
       setWidths({
         one: oneRef.current?.clientWidth || widths.one,
