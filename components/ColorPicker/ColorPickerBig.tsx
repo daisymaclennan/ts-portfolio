@@ -1,5 +1,5 @@
 import { motion, useDragControls } from "framer-motion";
-import { MouseEvent, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 const drawColorSpectrum = (canvasContext, canvas) => {
@@ -86,10 +86,7 @@ const ColorPicker = ({ className, color, setColor }: ColorPickerProps) => {
         dragControls={dragControls}
         type="button"
         style={{ backgroundColor: color }}
-        onDrag={(e) => {
-          handleColorChange(getRelativePosParent(e));
-          console.log("relative drag pos", getRelativePosParent(e));
-        }}
+        onDrag={(e) => handleColorChange(getRelativePosParent(e))}
       />
       <div>
         <canvas
