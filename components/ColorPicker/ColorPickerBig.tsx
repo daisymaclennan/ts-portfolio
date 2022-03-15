@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useDragControls } from "framer-motion";
 import { MouseEvent, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
@@ -37,7 +37,7 @@ const ColorPicker = ({ className, color, setColor }: ColorPickerProps) => {
   const constraints = useRef<HTMLDivElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
   const [canvasContext, setCanvasContext] = useState<any>(null);
-  const [btnPos, setBtnPos] = useState({ x: 0, y: 0 });
+  const dragControls = useDragControls();
 
   useEffect(() => {
     if (canvas.current) {
@@ -83,6 +83,7 @@ const ColorPicker = ({ className, color, setColor }: ColorPickerProps) => {
       <motion.button
         drag
         dragConstraints={constraints}
+        dragControls={dragControls}
         type="button"
         style={{ backgroundColor: color }}
         onDrag={(e) => {
@@ -93,7 +94,13 @@ const ColorPicker = ({ className, color, setColor }: ColorPickerProps) => {
       <div>
         <canvas
           ref={canvas}
-          onClick={(e) => handleColorChange({ x: e.nativeEvent.offsetX, y: e.nativeEvent.offsetY })}
+          onClick={(e) => {
+            handleColorChange({
+              x: e.nativeEvent.offsetX,
+              y: e.nativeEvent.offsetY,
+            });
+            dragControls.start(e, { snapToCursor: true });
+          }}
         />
       </div>
     </div>
