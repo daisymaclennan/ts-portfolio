@@ -1,5 +1,32 @@
 import { MouseEvent, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+
+const drawColorSpectrum = (canvasContext, canvas) => {
+    let gradient = canvasContext.createLinearGradient(0, 0, canvas.width, 0);
+    gradient.addColorStop(0, "#ff0000");
+    gradient.addColorStop(1 / 6, "#ffff00");
+    gradient.addColorStop((1 / 6) * 2, "#00ff00");
+    gradient.addColorStop((1 / 6) * 3, "#00ffff");
+    gradient.addColorStop((1 / 6) * 4, "#0000ff");
+    gradient.addColorStop((1 / 6) * 5, "#ff00ff");
+    gradient.addColorStop(1, "#ff0000");
+    canvasContext.fillStyle = gradient;
+    canvasContext.fillRect(0, 0, canvas.width, canvas.height);
+
+    gradient = canvasContext.createLinearGradient(0, 0, 0, canvas.height);
+    gradient.addColorStop(0, "rgba(255, 255, 255, 1)");
+    gradient.addColorStop(0.5, "rgba(255, 255, 255, 0)");
+    gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
+    canvasContext.fillStyle = gradient;
+    canvasContext.fillRect(0, 0, canvas.width, canvas.height);
+
+    gradient = canvasContext.createLinearGradient(0, 0, 0, canvas.height);
+    gradient.addColorStop(0, "rgba(0, 0, 0, 0)");
+    gradient.addColorStop(0.5, "rgba(0, 0, 0, 0)");
+    gradient.addColorStop(1, "rgba(0, 0, 0, 1)");
+    canvasContext.fillStyle = gradient;
+    canvasContext.fillRect(0, 0, canvas.width, canvas.height);
+}
 interface ColorPickerProps {
   className?: string;
   setColor: (color: string) => void;
@@ -7,19 +34,11 @@ interface ColorPickerProps {
 const ColorPicker = ({ className, setColor }: ColorPickerProps) => {
   const canvas = useRef<HTMLCanvasElement>(null);
   const [canvasContext, setCanvasContext] = useState<any>(null);
+
   useEffect(() => {
     if (canvas.current) {
       setCanvasContext(canvas.current.getContext("2d"));
-      const canvasImage = new Image(500, 500);
-      canvasImage.onload = () =>
-        canvasContext?.drawImage(
-          canvasImage,
-          0,
-          0,
-          canvasImage.width,
-          canvasImage.height
-        );
-      canvasImage.src = "/light-color-spectrum.png";
+      drawColorSpectrum(canvas.current.getContext("2d"), canvas.current);
     }
   }, [canvasContext]);
   const handleColorChange = (e: MouseEvent<HTMLCanvasElement>) => {
