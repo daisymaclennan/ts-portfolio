@@ -1,11 +1,15 @@
 import Head from "next/head";
 import { useState } from "react";
 import ColorPicker from "../../components/ColorPicker/ColorPickerBig";
+import ColorPickerOpacity from "../../components/ColorPicker/ColorPickerOpacity";
 import ColorPreview from "../../components/ColorPicker/ColorPreview";
 import ContentWrapper from "../../components/ContentWrapper";
 
 export default function Home() {
-  const [color, setColor] = useState("#FFFFFF");
+  const [color, setColor] = useState({
+    actual: "rgba(0, 0, 0, 0)",
+    array: [0, 0, 0, 0],
+  });
   return (
     <div style={{ overflowX: "hidden" }}>
       <Head>
@@ -22,7 +26,9 @@ export default function Home() {
       <ContentWrapper>
         <ColorPicker setColor={setColor} color={color} />
 
-        <ColorPreview color={color} />
+        <ColorPickerOpacity color={color} setColor={setColor} />
+
+        <ColorPreview color={color.actual} />
       </ContentWrapper>
     </div>
   );

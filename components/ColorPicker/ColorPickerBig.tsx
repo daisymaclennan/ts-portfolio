@@ -30,8 +30,8 @@ const drawColorSpectrum = (canvasContext, canvas) => {
 };
 interface ColorPickerProps {
   className?: string;
-  color: string;
-  setColor: (color: string) => void;
+  color: { actual: string; array: number[] };
+  setColor: (color: { actual: string; array: number[] }) => void;
 }
 const ColorPicker = ({ className, color, setColor }: ColorPickerProps) => {
   const constraints = useRef<HTMLDivElement>(null);
@@ -55,17 +55,10 @@ const ColorPicker = ({ className, color, setColor }: ColorPickerProps) => {
         1
       );
       const rgba = imgData.data;
-      setColor(
-        "rgba(" +
-          rgba[0] +
-          ", " +
-          rgba[1] +
-          ", " +
-          rgba[2] +
-          ", " +
-          rgba[3] +
-          ")"
-      );
+      setColor({
+        actual: `rgba(${rgba[0]}, ${rgba[1]}, ${rgba[2]}, ${rgba[3]})`,
+        array: rgba,
+      });
     }
   };
 
@@ -85,11 +78,11 @@ const ColorPicker = ({ className, color, setColor }: ColorPickerProps) => {
         dragConstraints={constraints}
         dragControls={dragControls}
         type="button"
-        style={{ backgroundColor: color }}
+        style={{ backgroundColor: color.actual }}
         onDrag={(e) => handleColorChange(getRelativePosParent(e))}
         dragElastic={1}
         dragMomentum={false}
-        whileHover={{ scale: 1.2, cursor: 'move' }}
+        whileHover={{ scale: 1.2, cursor: "move" }}
       />
       <div>
         <canvas
