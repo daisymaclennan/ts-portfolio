@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { MouseEvent, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
@@ -33,6 +34,7 @@ interface ColorPickerProps {
   setColor: (color: string) => void;
 }
 const ColorPicker = ({ className, color, setColor }: ColorPickerProps) => {
+  const constraints = useRef<HTMLDivElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
   const [canvasContext, setCanvasContext] = useState<any>(null);
   const [btnPos, setBtnPos] = useState({ x: 0, y: 0 });
@@ -44,14 +46,11 @@ const ColorPicker = ({ className, color, setColor }: ColorPickerProps) => {
     }
   }, [canvasContext]);
 
-  const handleColorChange = (e: MouseEvent<HTMLCanvasElement>) => {
-    console.log(e);
+  const handleColorChange = (relativePos: { x: number; y: number }) => {
     if (canvas.current) {
       const imgData = canvasContext.getImageData(
-        (e.nativeEvent.offsetX / canvas.current.clientWidth) *
-          canvas.current.width,
-        (e.nativeEvent.offsetY / canvas.current.clientHeight) *
-          canvas.current.height,
+        (relativePos.x / canvas.current.clientWidth) * canvas.current.width,
+        (relativePos.y / canvas.current.clientHeight) * canvas.current.height,
         1,
         1
       );
@@ -69,14 +68,33 @@ const ColorPicker = ({ className, color, setColor }: ColorPickerProps) => {
       );
     }
   };
+
+  const getRelativePosParent = (e) => {
+    if (constraints.current) {
+      const parentPos = constraints.current.getBoundingClientRect();
+
+      return { x: e.pageX - parentPos.left, y: e.pageY - parentPos.top };
+    }
+
+    return { x: 0, y: 0 };
+  };
   return (
-    <div className={className}>
-      <button
+    <div className={className} ref={constraints}>
+      <motion.button
+        drag
+        dragConstraints={constraints}
         type="button"
         style={{ backgroundColor: color }}
+        onDrag={(e) => {
+          handleColorChange(getRelativePosParent(e));
+          console.log("relative drag pos", getRelativePosParent(e));
+        }}
       />
       <div>
-        <canvas ref={canvas} onClick={(e) => handleColorChange(e)} />
+        <canvas
+          ref={canvas}
+          onClick={(e) => handleColorChange({ x: e.nativeEvent.offsetX, y: e.nativeEvent.offsetY })}
+        />
       </div>
     </div>
   );
@@ -88,6 +106,8 @@ const StyledColorPicker = styled(ColorPicker)`
     width: 22px;
     border-radius: 11px;
     border: 2px solid white;
+    position: absolute;
+    z-index: 100;
   }
   div {
     height: 0;
