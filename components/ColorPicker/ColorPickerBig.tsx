@@ -87,6 +87,9 @@ const ColorPicker = ({ className, color, setColor }: ColorPickerProps) => {
         type="button"
         style={{ backgroundColor: color }}
         onDrag={(e) => handleColorChange(getRelativePosParent(e))}
+        dragElastic={1}
+        dragMomentum={false}
+        whileHover={{ scale: 1.2, cursor: 'move' }}
       />
       <div>
         <canvas
