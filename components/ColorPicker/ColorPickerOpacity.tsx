@@ -28,7 +28,7 @@ const ColorPickerOpacity = ({
               color.array[0],
               color.array[1],
               color.array[2],
-              e.target.value,
+              parseInt(e.target.value),
             ],
           })
         }
