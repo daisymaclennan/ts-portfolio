@@ -1,6 +1,6 @@
 const data = {
   introduction:
-    "I'm a Front End Developer based in Derby, UK. I have over 3 years experience working with world class agencies across the UK.",
+    "I'm a Front End Developer based in Portsmouth, UK. I have 5 years experience working with world class agencies + start ups across the UK.",
   skills: {
     sm: ["styledcomps.png", "vue.png", "wordpress.png"],
     md: ["gatsby.png", "js.jpeg"],
@@ -21,7 +21,6 @@ const data = {
     {
       name: "MCG Front End Dev Challenge",
       github: "https://github.com/daisymaclennan/mcg_devtest",
-      live: "https://mcg-devtest-ewxtbhr1k-daisy2.vercel.app/",
     },
     {
       name: "California Calling Clone",
