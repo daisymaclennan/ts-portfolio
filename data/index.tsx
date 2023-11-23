@@ -15,7 +15,7 @@ const data = {
     {
       name: "Fareham Heathens Rugby",
       github: "https://github.com/daisymaclennan/fareham-heathens",
-      design:
+      live:
         "https://fareham-heathens.vercel.app/",
     },
     {
