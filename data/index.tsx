@@ -13,20 +13,22 @@ const data = {
       live: "https://jack-bretherick-portfolio.netlify.app/",
     },
     {
-      name: "Gosport Boxing Club",
-      github: "https://github.com/daisymaclennan/gosportboxingclub",
+      name: "Fareham Heathens Rugby",
+      github: "https://github.com/daisymaclennan/fareham-heathens",
       design:
-        "https://www.figma.com/file/vINPRcDjMCf9kRDtOGAbPN/Gosport-Boxing-Club?node-id=22%3A345",
-    },
-    {
-      name: "MCG Front End Dev Challenge",
-      github: "https://github.com/daisymaclennan/mcg_devtest",
+        "https://fareham-heathens.vercel.app/",
     },
     {
       name: "California Calling Clone",
       github:
         "https://github.com/daisymaclennan/California-Calling-using-Vue.js-rebuild",
       live: "https://naughty-tereshkova-358524.netlify.app/",
+    },
+    {
+      name: "Gosport Boxing Club",
+      github: "https://github.com/daisymaclennan/gosportboxingclub",
+      design:
+        "https://www.figma.com/file/vINPRcDjMCf9kRDtOGAbPN/Gosport-Boxing-Club?node-id=22%3A345",
     },
     {
       name: "React Drag Drop",
